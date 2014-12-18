@@ -25,6 +25,8 @@ BuildRequires:  gettext
 BuildRequires:  libcap-devel
 BuildRequires:  libtool
 BuildRequires:  systemd-devel
+BuildRequires:  pkgconfig(libselinux)
+BuildRequires:  pkgconfig(audit)
 %if %{with X11}
 BuildRequires:  pkgconfig(x11)
 %endif
@@ -80,8 +82,8 @@ Headers and static libraries for D-Bus.
     --disable-asserts \
     --disable-xml-docs \
     --disable-doxygen-docs \
-    --disable-selinux \
-    --disable-libaudit \
+    --enable-selinux \
+    --enable-libaudit \
     --with-system-pid-file=%{_localstatedir}/run/messagebus.pid \
     --with-dbus-user=dbus \
     --with-systemdsystemunitdir="/%{_lib}/systemd/system" \
